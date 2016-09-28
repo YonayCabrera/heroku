@@ -11,6 +11,7 @@ public class HelloController {
     }
 
     private void setRoute() {
+        CorsFilter.apply();
         get("hello",(request, response) -> "{\"message\": \"HelloWorld!\"}");
     }
 }
