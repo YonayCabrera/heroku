@@ -2,6 +2,9 @@ package webService;
 
 import spark.Spark;
 import webService.controller.HelloController;
+import webService.controller.UserController;
+import webService.userRepository.UserRepository;
+import webService.userservices.UserService;
 
 import java.util.Optional;
 
@@ -11,6 +14,7 @@ public class Application {
         Spark.port(Optional.ofNullable(port).map(Integer::valueOf).orElse(4567));
         Spark.staticFileLocation("/public");
         new HelloController();
+        new UserController(new UserService(new UserRepository()));
     }
 
 }
