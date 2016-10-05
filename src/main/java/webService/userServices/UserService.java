@@ -1,5 +1,7 @@
-package webService.userservices;
+package webService.userServices;
 
+import spark.Request;
+import webService.controller.User;
 import webService.userRepository.UserRepository;
 import static spark.Spark.*;
 
@@ -14,7 +16,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    private void services(){
 
+    public User createUser(Request request) {
+        return UserRepository.addUser(request);
     }
+
+
 }
