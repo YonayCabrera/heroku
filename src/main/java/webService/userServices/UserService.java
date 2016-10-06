@@ -3,7 +3,6 @@ package webService.userServices;
 import spark.Request;
 import webService.controller.User;
 import webService.userRepository.UserRepository;
-import static spark.Spark.*;
 
 /**
  * Created by yon on 29/09/2016.
@@ -18,7 +17,7 @@ public class UserService {
 
 
     public User createUser(Request request) {
-        return UserRepository.addUser(request);
+        return UserRepository.addUser(request.queryParams("user"));
     }
 
 

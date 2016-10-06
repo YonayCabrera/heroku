@@ -17,7 +17,7 @@ public class UserController {
     }
 
     private void apply(){
-        post("/users", (request, response) -> userService.createUser(request),"{\"user\": \"yonay\"}");
+        post("/users", (request, response) -> userService.createUser(request), Object::toString);
     }
 
 }

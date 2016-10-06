@@ -1,6 +1,5 @@
 package webService.userRepository;
 
-import spark.Request;
 import webService.controller.User;
 
 import java.util.HashMap;
@@ -15,8 +14,8 @@ public class UserRepository {
     private static int idUser=0;
 
 
-    public static User addUser(Request request) {
-        User user = new User(idUser++,request.queryParams("user"));
+    public static User addUser(String name) {
+        User user = new User(idUser++, name);
         users.put(user.getId(),user);
         return users.get(user.getId());
     }
